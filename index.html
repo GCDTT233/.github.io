@@ -1,47 +1,38 @@
-html>
-  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>  
-  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene
-      arjs
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
-    >
-      <a-assets>
-        <a-asset-item
-          id="HNY"
-          src="2.glb"
-        >
-        </a-asset-item>
-      </a-assets>
-          
-          <a-marker
-            preset="hiro"
-            raycaster="objects: .clickable"
-            emitevents="true"
-            cursor="fuse: false; rayOrigin: mouse;"
-            id="markerA"
-          >
-                <a-entity
-                  id="HNY-model"
-                  gltf-model="#HNY"
-                  animation-mixer
-                  position="0 0 0"
-                  scale="0.1 0.1 0.1"
-                  class="clickable"
-                  gesture-handler
-                >
-                </a-entity>
-          </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web AR Пример</title>
+    <!-- Подключаем скрипт model-viewer -->
+    <script type="module" src="https://googleapis.com"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+        model-viewer {
+            width: 100%;
+            height: 500px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Пример 3D-модели с поддержкой AR</h2>
     
-      
-  
-  </body>
+    <!-- AR-атрибуты активируют кнопку "Посмотреть в дополненной реальности" на телефоне -->
+    <model-viewer 
+        src="https://modelviewer.dev" 
+        ios-src="https://modelviewer.dev"
+        alt="Космонавт" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        touch-action="pan-y">
+    </model-viewer>
+
+    <p>Откройте эту страницу со смартфона и нажмите на иконку AR (в правом нижнем углу или на панели), чтобы увидеть модель в реальном окружении.</p>
+
+</body>
+</html>
 </html>
